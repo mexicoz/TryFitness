@@ -3,6 +3,7 @@
 
 namespace TryFitnessBL.Model
 {
+    [Serializable]
     public class User
     {
         public string Name { get; }
@@ -41,7 +42,7 @@ namespace TryFitnessBL.Model
             #endregion
 
             Name = name;
-            Gender = gender;
+            Gender = gender; 
             BirthDate = birthDate;
             Weight = weight;
             Height = height;
