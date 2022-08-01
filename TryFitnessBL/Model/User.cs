@@ -20,14 +20,11 @@ namespace TryFitnessBL.Model
                     double height)
         {
             #region Check conditions
+
             if (string.IsNullOrWhiteSpace(name))
             {
                 throw new ArgumentNullException("Name cannot be empty or null", nameof(name));
-            }
-            if(gender == null)
-            {
-                throw new ArgumentNullException("Gender cannot be null", nameof(gender));
-            }
+            }            
             if(birthDate < DateTime.Parse("01.01.1923") && birthDate >= DateTime.Now)
             {
                 throw new ArgumentException("Impossible date of birth", nameof(birthDate));
@@ -42,8 +39,8 @@ namespace TryFitnessBL.Model
             }
             #endregion
 
-            Name = name;
-            Gender = gender; 
+            Gender = gender ?? throw new ArgumentNullException("Gender cannot be null", nameof(gender));
+            Name = name; 
             BirthDate = birthDate;
             Weight = weight;
             Height = height;
