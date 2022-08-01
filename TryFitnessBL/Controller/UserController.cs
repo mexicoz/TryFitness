@@ -9,33 +9,30 @@ namespace TryFitnessBL.Controller
     {
         public User User { get; }
 
-        public UserController(User user)
+        public UserController(string userName, string genderName, DateTime birthDay, double weight, double height )
         {
-            User = user ?? throw new ArgumentException("User cennot be null", nameof(user));
+            var gender = new Gender(genderName);
+            User = new User(userName, gender, birthDay, weight, height);
         }
-        private void Save()
+        public UserController()
+        {
+            var formatter = new BinaryFormatter();
+
+            using (var fileStream = new FileStream("users.dat", FileMode.OpenOrCreate))
+            {
+                if( formatter.Deserialize(fileStream) is User user)
+                {
+                    User = user;
+                }
+            }
+        }
+        public void Save()
         {
             var formatter = new BinaryFormatter();
 
             using (var fileStream = new FileStream("users.dat", FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fileStream, User);
-            }
-        }
-        private User Load()
-        {
-            var formatter = new BinaryFormatter();
-
-            using (var fileStream = new FileStream("users.dat", FileMode.OpenOrCreate))
-            {
-                if(formatter.Deserialize(fileStream) is User user)
-                {
-                    return user;
-                }
-                else
-                {
-                    throw new FileLoadException("User not found", nameof(user));
-                }
             }
         }
     }

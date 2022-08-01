@@ -1,0 +1,10 @@
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\TryFitness.CMD.exe.config
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\TryFitness.CMD.exe
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\TryFitness.CMD.pdb
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\TryFitnessBL.dll
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\TryFitnessBL.pdb
+F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.csproj.AssemblyReference.cache
+F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.csproj.CoreCompileInputs.cache
+F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.csproj.CopyComplete
+F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.exe
+F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.pdb

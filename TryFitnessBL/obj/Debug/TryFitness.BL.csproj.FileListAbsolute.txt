@@ -1,0 +1,6 @@
+F:\C#\TryFitness\TryFitnessBL\bin\Debug\TryFitnessBL.dll
+F:\C#\TryFitness\TryFitnessBL\bin\Debug\TryFitnessBL.pdb
+F:\C#\TryFitness\TryFitnessBL\obj\Debug\TryFitness.BL.csproj.AssemblyReference.cache
+F:\C#\TryFitness\TryFitnessBL\obj\Debug\TryFitness.BL.csproj.CoreCompileInputs.cache
+F:\C#\TryFitness\TryFitnessBL\obj\Debug\TryFitnessBL.dll
+F:\C#\TryFitness\TryFitnessBL\obj\Debug\TryFitnessBL.pdb
