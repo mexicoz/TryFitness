@@ -24,7 +24,7 @@ namespace TryFitnessBL.Model
             {
                 throw new ArgumentNullException("Name cannot be empty or null", nameof(name));
             }
-            if(gender== null)
+            if(gender == null)
             {
                 throw new ArgumentNullException("Gender cannot be null", nameof(gender));
             }
