@@ -10,21 +10,55 @@ namespace TryFitness.CMD
             Console.WriteLine("Enter your name");
             var name = Console.ReadLine();
 
-            Console.WriteLine("Enter your gender");
-            var gender = Console.ReadLine();
+            UserController user = new UserController(name);
 
-            Console.WriteLine("Enter your birthDay");
-            var birthDay = DateTime.Parse(Console.ReadLine());
+            if (user.IsNewUser)
+            {
+                Console.Write("Enter your gender: ");
+                var gender = Console.ReadLine();
+                var birthDate = ParsDate();
+                var weigth = ParsDouble("Weigth");
+                var height = ParsDouble("Height");
+               
+                user.SetNewUserData(gender, birthDate, weigth, height);
+            }
 
-            Console.WriteLine("Enter your weight");
-            var weigth = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter your height");
-            var height = double.Parse(Console.ReadLine());
-
-            UserController user = new UserController(name, gender, birthDay, weigth, height);
-
-            user.Save();
+            Console.WriteLine(user.CurrentUser);
+            Console.ReadLine();
         }
-    }
+
+        private static DateTime ParsDate()
+        {
+            DateTime birthDate;
+            while (true)
+            {
+                Console.Write("Enter your birthday: ");
+                if (DateTime.TryParse(Console.ReadLine(), out birthDate))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect format");
+                }
+            }
+            return birthDate;
+        }
+
+        private static double ParsDouble(string name)
+        {
+            while (true)
+            {
+                Console.Write($"Enter your {name}: ");
+                if (double.TryParse(Console.ReadLine(), out double value))
+                {
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect format");
+                }
+            }
+        }
+    } 
 }

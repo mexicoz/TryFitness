@@ -1,28 +1,56 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using TryFitnessBL.Model;
+using System.Linq;
 
 namespace TryFitnessBL.Controller
 {
     public class UserController
     {
-        public User User { get; }
+        public List<User> Users { get; }
+        public User CurrentUser { get; }
+        public bool IsNewUser { get; } = false;
 
-        public UserController(string userName, string genderName, DateTime birthDay, double weight, double height )
+        public UserController(string userName)
         {
-            var gender = new Gender(genderName);
-            User = new User(userName, gender, birthDay, weight, height);
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                throw new ArgumentNullException("Name cannot be empty or null", nameof(userName));
+            }
+            Users = GetUsersData();
+            CurrentUser = Users.SingleOrDefault(u => u.Name == userName);
+
+            if(CurrentUser == null)
+            {
+                CurrentUser = new User(userName);
+                Users.Add(CurrentUser);
+                IsNewUser = true;
+                Save();
+            }
         }
-        public UserController()
+        public void SetNewUserData(string genderName, DateTime birthDate, double weigth = 1, double heigth = 1)
+        {
+            CurrentUser.Gender = new Gender(genderName);
+            CurrentUser.BirthDate = birthDate;
+            CurrentUser.Weight = weigth;
+            CurrentUser.Height = heigth;
+            Save();
+        }
+        private List<User> GetUsersData()
         {
             var formatter = new BinaryFormatter();
 
             using (var fileStream = new FileStream("users.dat", FileMode.OpenOrCreate))
             {
-                if( formatter.Deserialize(fileStream) is User user)
+                if( formatter.Deserialize(fileStream) is List<User> users)
                 {
-                    User = user;
+                    return users;
+                }
+                else
+                {
+                    return new List<User>();
                 }
             }
         }
@@ -32,7 +60,7 @@ namespace TryFitnessBL.Controller
 
             using (var fileStream = new FileStream("users.dat", FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fileStream, User);
+                formatter.Serialize(fileStream, Users);
             }
         }
     }

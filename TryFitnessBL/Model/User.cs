@@ -7,10 +7,11 @@ namespace TryFitnessBL.Model
     public class User
     {
         public string Name { get; }
-        public Gender Gender { get; }
-        public DateTime BirthDate { get; }
+        public Gender Gender { get; set; }
+        public DateTime BirthDate { get; set; }
         public double Weight { get; set; }
         public double Height { get; set; }
+        public int Age { get { return DateTime.Now.Year - BirthDate.Year; } }
 
         public User(string name,
                     Gender gender,
@@ -47,10 +48,18 @@ namespace TryFitnessBL.Model
             Weight = weight;
             Height = height;
         }
+        public User(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException("Name cannot be empty or null", nameof(name));
+            }
+            Name = name;
+        }
 
         public override string ToString()
         {
-            return Name;
+            return Name + " " + Age;
         }
     }
 }
