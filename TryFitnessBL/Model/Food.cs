@@ -3,6 +3,7 @@
 
 namespace TryFitnessBL.Model
 {
+    [Serializable]
     public class Food
     {
         public string NameFood { get; }

@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace TryFitnessBL.Model
 {
+    [Serializable]
     public class Eating
     {
         public DateTime MomentEating { get; }

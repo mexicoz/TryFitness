@@ -7,8 +7,9 @@ using System.Linq;
 
 namespace TryFitnessBL.Controller
 {
-    public class UserController
+    public class UserController : ControllerBase
     {
+        private const string FILE_NAME = "users.dat";
         public List<User> Users { get; }
         public User CurrentUser { get; }
         public bool IsNewUser { get; } = false;
@@ -27,7 +28,7 @@ namespace TryFitnessBL.Controller
                 CurrentUser = new User(userName);
                 Users.Add(CurrentUser);
                 IsNewUser = true;
-                Save();
+                SaveUsersData();
             }
         }
         public void SetNewUserData(string genderName, DateTime birthDate, double weigth = 1, double heigth = 1)
@@ -36,32 +37,16 @@ namespace TryFitnessBL.Controller
             CurrentUser.BirthDate = birthDate;
             CurrentUser.Weight = weigth;
             CurrentUser.Height = heigth;
-            Save();
+            SaveUsersData();
         }
         private List<User> GetUsersData()
         {
-            var formatter = new BinaryFormatter();
-
-            using (var fileStream = new FileStream("users.dat", FileMode.OpenOrCreate))
-            {
-                if(fileStream.Length > 0 && formatter.Deserialize(fileStream) is List<User> users)
-                {
-                    return users;
-                }
-                else
-                {
-                    return new List<User>();
-                }
-            }
+            return Load<List<User>>(FILE_NAME) ?? new List<User>();
         }
-        public void Save()
+        
+        public void SaveUsersData()
         {
-            var formatter = new BinaryFormatter();
-
-            using (var fileStream = new FileStream("users.dat", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fileStream, Users);
-            }
+            Save(FILE_NAME, Users);            
         }
     }
 }
