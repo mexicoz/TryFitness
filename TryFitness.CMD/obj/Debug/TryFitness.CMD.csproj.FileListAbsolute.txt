@@ -10,3 +10,10 @@ F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.exe
 F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.pdb
 F:\C#\TryFitness\TryFitness.CMD\bin\Debug\System.ValueTuple.dll
 F:\C#\TryFitness\TryFitness.CMD\bin\Debug\System.ValueTuple.xml
+F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.csproj.GenerateResource.cache
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\ru-ua\TryFitness.CMD.resources.dll
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\en-us\TryFitness.CMD.resources.dll
+F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.Langueges.Messages.ru-ua.resources
+F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.Langueges.Messages.en-us.resources
+F:\C#\TryFitness\TryFitness.CMD\obj\Debug\ru-ua\TryFitness.CMD.resources.dll
+F:\C#\TryFitness\TryFitness.CMD\obj\Debug\en-us\TryFitness.CMD.resources.dll
