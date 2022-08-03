@@ -25,9 +25,9 @@ namespace TryFitnessBL
 
             using (var fileStream = new FileStream(fileName, FileMode.OpenOrCreate))
             {
-                if (fileStream.Length > 0 && formatter.Deserialize(fileStream) is T item)
+                if (fileStream.Length > 0 && formatter.Deserialize(fileStream) is T items)
                 {
-                    return item;
+                    return items;
                 }
                 else
                 {

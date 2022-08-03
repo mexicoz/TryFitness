@@ -1,5 +1,6 @@
 ﻿using System;
 using TryFitnessBL.Controller;
+using TryFitnessBL.Model;
 
 namespace TryFitness.CMD
 {
@@ -11,6 +12,7 @@ namespace TryFitness.CMD
             var name = Console.ReadLine();
 
             UserController user = new UserController(name);
+            EatingController eatingController = new EatingController(user.CurrentUser);
 
             if (user.IsNewUser)
             {
@@ -24,7 +26,40 @@ namespace TryFitness.CMD
             }
 
             Console.WriteLine(user.CurrentUser);
+
+            Console.WriteLine("Choose what to do next");
+            Console.WriteLine("E - Enter eating");
+            var key = Console.ReadKey();            
+
+            if(key.Key == ConsoleKey.E)
+            {
+                Console.WriteLine();
+                var food = EnterEating();
+                eatingController.AddFood(food.Food, food.Weight);
+
+                foreach (var item in eatingController.Eating.Foods)
+                {
+                    Console.WriteLine($"\t{item.Key} - {item.Value}");
+                }
+            }
+
             Console.ReadLine();
+        }
+
+        private static (Food Food, double Weight) EnterEating()
+        {
+            Console.Write("Enter food name: ");
+            var food = Console.ReadLine();
+
+            var prots = ParsDouble("proteins");
+            var fats = ParsDouble("fats");
+            var carbs = ParsDouble("calories");
+            var calories = ParsDouble("calories");
+            var weight = ParsDouble("weight of food");
+
+            var product = new Food(food, prots, fats, carbs, calories);
+
+            return (Food: product, Weight: weight);
         }
 
         private static DateTime ParsDate()
@@ -49,7 +84,7 @@ namespace TryFitness.CMD
         {
             while (true)
             {
-                Console.Write($"Enter your {name}: ");
+                Console.Write($"Enter {name}: ");
                 if (double.TryParse(Console.ReadLine(), out double value))
                 {
                     return value;

@@ -43,7 +43,7 @@ namespace TryFitnessBL.Controller
 
         private Eating GetEating()
         {
-            return Load <Eating>(EATING_FILE_NAME) ?? new Eating(user);
+            return Load<Eating>(EATING_FILE_NAME) ?? new Eating(user);
         }
 
         private List<Food> GetAllFoods()

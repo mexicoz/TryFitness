@@ -15,10 +15,10 @@ namespace TryFitnessBL.Controller.Tests
         [TestMethod()]
         public void AddFoodTest()
         {
-            var user = Guid.NewGuid().ToString();
+            var userName = Guid.NewGuid().ToString();
             var foodName = Guid.NewGuid().ToString();
             var rnd = new Random();
-            var userController = new UserController(user);
+            var userController = new UserController(userName);
             var eatingController = new EatingController(userController.CurrentUser);
             var food = new Food(foodName, rnd.Next(50, 500), rnd.Next(50, 500), rnd.Next(50, 500), rnd.Next(50, 500));
 
