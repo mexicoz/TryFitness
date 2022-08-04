@@ -129,6 +129,9 @@
   <data name="EnterEating" xml:space="preserve">
     <value>E - Enter eating</value>
   </data>
+  <data name="EnterExersise" xml:space="preserve">
+    <value>A - Enter exercise</value>
+  </data>
   <data name="fats" xml:space="preserve">
     <value>fats</value>
   </data>

@@ -127,7 +127,10 @@
     <value>Введите</value>
   </data>
   <data name="EnterEating" xml:space="preserve">
-    <value>E - Ввести продукт</value>
+    <value>E - Введите продукт</value>
+  </data>
+  <data name="EnterExersise" xml:space="preserve">
+    <value>А - Введите упражнение</value>
   </data>
   <data name="fats" xml:space="preserve">
     <value>жиры</value>

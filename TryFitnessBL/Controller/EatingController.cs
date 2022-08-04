@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using TryFitnessBL.Model;
 
 namespace TryFitnessBL.Controller
@@ -27,8 +23,9 @@ namespace TryFitnessBL.Controller
         
         public void AddFood(Food food, double weight)
         {
-            var newFood = Foods.SingleOrDefault(f => f.NameFood == food.NameFood);
-            if (newFood == null)
+            var existFood = Foods.SingleOrDefault(f => f.NameFood == food.NameFood);
+
+            if (existFood == null)
             {
                 Foods.Add(food);
                 Eating.AddFood(food, weight);
@@ -36,7 +33,7 @@ namespace TryFitnessBL.Controller
             }
             else
             {
-                Eating.AddFood(newFood, weight);
+                Eating.AddFood(existFood, weight);
                 SaveAllFoods();
             }
         }

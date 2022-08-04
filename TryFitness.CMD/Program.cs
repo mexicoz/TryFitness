@@ -42,6 +42,7 @@ namespace TryFitness.CMD
 
             Console.WriteLine(resuorceManager.GetString("ShooseNext", culture));
             Console.WriteLine(resuorceManager.GetString("EnterEating", culture));
+            Console.WriteLine(resuorceManager.GetString("EnterExersise", culture));
             var key = Console.ReadKey();            
 
             if(key.Key == ConsoleKey.E)
