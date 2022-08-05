@@ -77,8 +77,7 @@ namespace TryFitness.CMD
                 }
 
                 Console.ReadLine();
-            }
-            
+            }            
         }
 
         private static (DateTime startDate, DateTime finishDate, Activity activity ) EnterExercise()

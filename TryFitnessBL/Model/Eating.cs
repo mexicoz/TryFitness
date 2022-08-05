@@ -7,9 +7,11 @@ namespace TryFitnessBL.Model
     [Serializable]
     public class Eating
     {
-        public DateTime MomentEating { get; }
-        public Dictionary<Food, double> Foods { get; }
-        public User User { get; }
+        public int Id { get; set; }
+        public int UserID { get; set; }
+        public DateTime MomentEating { get; set; }
+        public Dictionary<Food, double> Foods { get; set; }
+        public virtual User User { get; set; }
 
         public Eating(User user)
         {

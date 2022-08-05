@@ -17,3 +17,8 @@ F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.Langueges.Messages.ru-u
 F:\C#\TryFitness\TryFitness.CMD\obj\Debug\TryFitness.CMD.Langueges.Messages.en-us.resources
 F:\C#\TryFitness\TryFitness.CMD\obj\Debug\ru-ua\TryFitness.CMD.resources.dll
 F:\C#\TryFitness\TryFitness.CMD\obj\Debug\en-us\TryFitness.CMD.resources.dll
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\EntityFramework.dll
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\EntityFramework.SqlServer.dll
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\TryFitnessBL.dll.config
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\EntityFramework.xml
+F:\C#\TryFitness\TryFitness.CMD\bin\Debug\EntityFramework.SqlServer.xml

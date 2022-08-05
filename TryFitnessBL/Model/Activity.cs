@@ -6,8 +6,9 @@ namespace TryFitnessBL.Model
     [Serializable]
     public class Activity
     {
-        public string NameActivity { get; }
-        public double CaloriesPerMinut { get; }
+        public int Id { get; set; }
+        public string NameActivity { get; set; }
+        public double CaloriesPerMinut { get; set; }
         public Activity(string nameActivity, double calPerMinut)
         {
             NameActivity = nameActivity;

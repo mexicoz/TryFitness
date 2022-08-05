@@ -1,35 +1,19 @@
 ﻿
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+
+using TryFitnessBL.Controller;
 
 namespace TryFitnessBL
 {
     public abstract class ControllerBase
     {
+        protected IDataSaver dataSaver = new SerializeDataSaver(); //new DatabaseDataSaver()
         protected void Save(string fileName, object item)
         {
-            var formatter = new BinaryFormatter();
-
-            using (var fileStream = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fileStream, item);
-            }
+            dataSaver.Save(fileName, item);
         }
-        protected T Load<T>(string fileName)
+        protected T Load<T>(string fileName) where T : class
         {
-            var formatter = new BinaryFormatter();
-
-            using (var fileStream = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                if (fileStream.Length > 0 && formatter.Deserialize(fileStream) is T items)
-                {
-                    return items;
-                }
-                else
-                {
-                    return default(T);
-                }
-            }
+            return dataSaver.Load<T>(fileName);
         }
     }
 }

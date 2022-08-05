@@ -6,11 +6,12 @@ namespace TryFitnessBL.Model
     [Serializable]
     public class Food
     {
-        public string NameFood { get; }
-        public double Proteins { get; }
-        public double Fats { get; }
-        public double Carbohybrates { get; }
-        public double Calories { get; }
+        public int Id { get; set; }
+        public string NameFood { get; set; }
+        public double Proteins { get; set; }
+        public double Fats { get; set; }
+        public double Carbohybrates { get; set; }
+        public double Calories { get; set; }
         private double CaloriesOneGram { get { return Calories / 100.0; } }
         private double ProteinsOneGram { get { return Proteins / 100.0; } }
         private double FatsOneGram { get { return Fats / 100.0; } }
