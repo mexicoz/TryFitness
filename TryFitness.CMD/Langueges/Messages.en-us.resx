@@ -123,6 +123,12 @@
   <data name="carbohybrates" xml:space="preserve">
     <value>carbohybrates</value>
   </data>
+  <data name="EndExercise" xml:space="preserve">
+    <value>End of exercise: </value>
+  </data>
+  <data name="EnergyPerMin" xml:space="preserve">
+    <value>Energy per Minute</value>
+  </data>
   <data name="Enter" xml:space="preserve">
     <value>Enter</value>
   </data>
@@ -131,6 +137,12 @@
   </data>
   <data name="EnterExersise" xml:space="preserve">
     <value>A - Enter exercise</value>
+  </data>
+  <data name="EnterQuit" xml:space="preserve">
+    <value>Q - Exit</value>
+  </data>
+  <data name="ExerciseName" xml:space="preserve">
+    <value>Enter name of exercise: </value>
   </data>
   <data name="fats" xml:space="preserve">
     <value>fats</value>
@@ -149,6 +161,9 @@
   </data>
   <data name="ShooseNext" xml:space="preserve">
     <value>Choose what to do next</value>
+  </data>
+  <data name="StartExercise" xml:space="preserve">
+    <value>Start of exercise: </value>
   </data>
   <data name="UserBirthday" xml:space="preserve">
     <value>Enter your birthday:</value>

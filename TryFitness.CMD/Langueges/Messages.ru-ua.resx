@@ -123,6 +123,12 @@
   <data name="carbohybrates" xml:space="preserve">
     <value>углеводы</value>
   </data>
+  <data name="EndExercise" xml:space="preserve">
+    <value>Конец тренировки: </value>
+  </data>
+  <data name="EnergyPerMin" xml:space="preserve">
+    <value>Расход энергии в минуту</value>
+  </data>
   <data name="Enter" xml:space="preserve">
     <value>Введите</value>
   </data>
@@ -131,6 +137,12 @@
   </data>
   <data name="EnterExersise" xml:space="preserve">
     <value>А - Введите упражнение</value>
+  </data>
+  <data name="EnterQuit" xml:space="preserve">
+    <value>Q - Выход</value>
+  </data>
+  <data name="ExerciseName" xml:space="preserve">
+    <value>Введите название упражнения: </value>
   </data>
   <data name="fats" xml:space="preserve">
     <value>жиры</value>
@@ -149,6 +161,9 @@
   </data>
   <data name="ShooseNext" xml:space="preserve">
     <value>Выберите что делать дальше</value>
+  </data>
+  <data name="StartExercise" xml:space="preserve">
+    <value>Начало тренировки: </value>
   </data>
   <data name="UserBirthday" xml:space="preserve">
     <value>Введите дату рождения</value>

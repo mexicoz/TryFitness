@@ -26,12 +26,13 @@ namespace TryFitness.CMD
 
             UserController user = new UserController(name);
             EatingController eatingController = new EatingController(user.CurrentUser);
+            ExerciseController exerciseController = new ExerciseController(user.CurrentUser);
 
             if (user.IsNewUser)
             {
                 Console.Write(resuorceManager.GetString("UserGender", culture));
                 var gender = Console.ReadLine();
-                var birthDate = ParsDate();
+                var birthDate = ParsDate(resuorceManager.GetString("UserBirthday", culture));
                 var weigth = ParsDouble(resuorceManager.GetString("UserWeigth", culture));
                 var height = ParsDouble(resuorceManager.GetString("UserHeight", culture));
                
@@ -40,24 +41,58 @@ namespace TryFitness.CMD
 
             Console.WriteLine(user.CurrentUser);
 
-            Console.WriteLine(resuorceManager.GetString("ShooseNext", culture));
-            Console.WriteLine(resuorceManager.GetString("EnterEating", culture));
-            Console.WriteLine(resuorceManager.GetString("EnterExersise", culture));
-            var key = Console.ReadKey();            
-
-            if(key.Key == ConsoleKey.E)
+            while (true)
             {
-                Console.WriteLine();
-                var food = EnterEating();
-                eatingController.AddFood(food.Food, food.Weight);
+                Console.WriteLine(resuorceManager.GetString("ShooseNext", culture));
+                Console.WriteLine(resuorceManager.GetString("EnterEating", culture));
+                Console.WriteLine(resuorceManager.GetString("EnterExersise", culture));
+                Console.WriteLine(resuorceManager.GetString("EnterQuit", culture));
+                var key = Console.ReadKey();
 
-                foreach (var item in eatingController.Eating.Foods)
+                switch (key.Key)
                 {
-                    Console.WriteLine($"\t{item.Key} - {item.Value}");
-                }
-            }
+                    case ConsoleKey.E:
+                        Console.WriteLine();
+                        var food = EnterEating();
+                        eatingController.AddFood(food.Food, food.Weight);
 
-            Console.ReadLine();
+                        foreach (var item in eatingController.Eating.Foods)
+                        {
+                            Console.WriteLine($"\t{item.Key} - {item.Value}");
+                        }
+                        break;
+                    case ConsoleKey.A:
+                        Console.WriteLine();
+                        var exercise = EnterExercise();
+                        exerciseController.AddExercise(exercise.activity, exercise.startDate, exercise.finishDate);
+
+                        foreach (var item in exerciseController.Exercises)
+                        {
+                            Console.WriteLine($"\t{item.Activity}, {item.Start.ToShortTimeString()} - {item.Finish.ToShortTimeString()}");
+                        }
+                        break;
+                    case ConsoleKey.Q:
+                        Environment.Exit(0);
+                        break;
+                }
+
+                Console.ReadLine();
+            }
+            
+        }
+
+        private static (DateTime startDate, DateTime finishDate, Activity activity ) EnterExercise()
+        {
+            Console.Write(resuorceManager.GetString("ExerciseName", culture));
+            var exercise = Console.ReadLine();
+            var energy = ParsDouble(resuorceManager.GetString("EnergyPerMin", culture));
+
+            var activity = new Activity(exercise, energy);
+
+            var startDate = ParsDate(resuorceManager.GetString("StartExercise", culture));
+            var finishDate = ParsDate(resuorceManager.GetString("EndExercise", culture));
+
+            return (startDate: startDate, finishDate: finishDate, activity: activity);
         }
 
         private static (Food Food, double Weight) EnterEating()
@@ -88,12 +123,12 @@ namespace TryFitness.CMD
             }
         }
 
-        private static DateTime ParsDate()
+        private static DateTime ParsDate(string value)
         {
             DateTime birthDate;
             while (true)
             {
-                Console.Write(resuorceManager.GetString("UserBirthday", culture));
+                Console.Write(value);
                 if (DateTime.TryParse(Console.ReadLine(), out birthDate))
                 {
                     break;
