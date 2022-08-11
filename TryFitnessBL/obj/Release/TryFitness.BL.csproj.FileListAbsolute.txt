@@ -1,0 +1,11 @@
+F:\C#\TryFitness\TryFitnessBL\bin\Release\TryFitnessBL.dll.config
+F:\C#\TryFitness\TryFitnessBL\bin\Release\TryFitnessBL.dll
+F:\C#\TryFitness\TryFitnessBL\bin\Release\TryFitnessBL.pdb
+F:\C#\TryFitness\TryFitnessBL\bin\Release\EntityFramework.dll
+F:\C#\TryFitness\TryFitnessBL\bin\Release\EntityFramework.SqlServer.dll
+F:\C#\TryFitness\TryFitnessBL\bin\Release\EntityFramework.xml
+F:\C#\TryFitness\TryFitnessBL\bin\Release\EntityFramework.SqlServer.xml
+F:\C#\TryFitness\TryFitnessBL\obj\Release\TryFitness.BL.csproj.CoreCompileInputs.cache
+F:\C#\TryFitness\TryFitnessBL\obj\Release\TryFitness.BL.csproj.CopyComplete
+F:\C#\TryFitness\TryFitnessBL\obj\Release\TryFitnessBL.dll
+F:\C#\TryFitness\TryFitnessBL\obj\Release\TryFitnessBL.pdb
