@@ -17,6 +17,7 @@ namespace TryFitnessBL.Model
         private double FatsOneGram { get { return Fats / 100.0; } }
         private double CarbohybratesOneGram { get { return Carbohybrates / 100.0; } }
 
+        public Food() { }
         public Food(string nameFood) : this(nameFood, 0, 0, 0, 0){  }
         public Food(string nameFood, double proteins, double fats, double carbohybrates, double calories)
         {

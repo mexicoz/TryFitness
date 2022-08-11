@@ -13,7 +13,7 @@ namespace TryFitnessBL.Controller
         public DbSet<Gender> Genders { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public FitnessContext() : base("DBConection") { } 
+        public FitnessContext() : base("DbConection") { } 
 
     }
 }

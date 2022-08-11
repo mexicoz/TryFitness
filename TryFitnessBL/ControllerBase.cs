@@ -1,19 +1,21 @@
 ﻿
 
+using System.Collections.Generic;
 using TryFitnessBL.Controller;
 
 namespace TryFitnessBL
 {
     public abstract class ControllerBase
     {
-        protected IDataSaver dataSaver = new SerializeDataSaver(); //new DatabaseDataSaver()
-        protected void Save(string fileName, object item)
+        private readonly IDataSaver manager = new SerializeDataSaver();
+
+        protected void Save<T>(List <T> item) where T: class
         {
-            dataSaver.Save(fileName, item);
+            manager.Save(item);
         }
-        protected T Load<T>(string fileName) where T : class
+        protected List<T> Load<T>() where T: class
         {
-            return dataSaver.Load<T>(fileName);
+            return manager.Load<T>();
         }
     }
 }

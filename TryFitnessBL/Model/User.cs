@@ -14,6 +14,7 @@ namespace TryFitnessBL.Model
         public double Height { get; set; }
         public int Age { get { return DateTime.Now.Year - BirthDate.Year; } }
 
+        public User() { }
         public User(string name,
                     Gender gender,
                     DateTime birthDate,

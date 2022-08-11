@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using TryFitnessBL.Model;
 using System.Linq;
 
@@ -41,12 +39,12 @@ namespace TryFitnessBL.Controller
         }
         private List<User> GetUsersData()
         {
-            return Load<List<User>>(FILE_NAME) ?? new List<User>();
+            return Load<User>() ?? new List<User>();
         }
         
         public void SaveUsersData()
         {
-            Save(FILE_NAME, Users);            
+            Save(Users);
         }
     }
 }

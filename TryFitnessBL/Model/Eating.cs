@@ -8,11 +8,13 @@ namespace TryFitnessBL.Model
     public class Eating
     {
         public int Id { get; set; }
+        public string NameEating { get; set; }
         public int UserID { get; set; }
         public DateTime MomentEating { get; set; }
         public Dictionary<Food, double> Foods { get; set; }
         public virtual User User { get; set; }
 
+        public Eating() { }
         public Eating(User user)
         {
             User = user ?? throw new ArgumentNullException("Name cannot be empty or null", nameof(user));
